@@ -165,22 +165,50 @@ $('document').ready(function(){
 	});
 	
 	$('#story').click(function(){
+		function start() {
+            const text = [
+				 '生日快乐呀，我的宝藏爱播 ',
+				 '恭喜桑酒儿小朋友按时长大 ',
+				 '这是陪你过的第一个生日 ',
+				 '希望新的一岁，你能被满满的爱包围',
+				 '时刻有人守护，所有幸运都降临在你身上，',
+				 '永远光芒万丈。  ---嘴',
+
+            ]
+            let str = text.join('<br><br>')
+            let str_ = ''
+            let i = 0
+            let content = document.getElementById('contents')
+            let timer = setInterval(() => {
+                if (str_.length < str.length) {
+                    str_ += str[i++]
+                    content.innerHTML = '<p class="start-text">' + str_ + '<span class="xx" style="opacity: 1;    color: red;">❤</span></p>'                        //打印时加光标
+                } else {
+                    clearInterval(timer)
+                    content.innerHTML = '<p class="start-text">' + str_ + '</p>'
+                }
+            }, 100)
+        }
+	    start();
 		$(this).fadeOut('slow');
 		$('.cake').fadeOut('fast').promise().done(function(){
+
 			$('.message').fadeIn('slow');
 		});
 		
 		var i;
 
 		function msgLoop (i) {
-			$("p:nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
+			$("p:not(.start-text):nth-child("+i+")").fadeOut('slow').delay(800).promise().done(function(){
 			 i = (i % 10) + 1;
-			$("p:nth-child("+i+")").fadeIn('slow').delay(1000);
+			$("p:not(.start-text):nth-child("+i+")").fadeIn('slow').delay(1000);
 			msgLoop(i);
 
 		});
 		}
-		
+
+
+
 		msgLoop(0);
 		
 	});

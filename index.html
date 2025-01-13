@@ -12,6 +12,20 @@
 
 <head>
     <title>HAPPY BIRTHDAY To ZhangXiaoHui </title>
+    <style>
+        .text-box {
+    position: absolute;   /* 使该元素绝对定位 */
+    top: 10px;            /* 距离顶部 10px */
+    left: 10px;           /* 距离左边 10px */
+    background-color: rgba(0, 0, 0, 0.7); /* 背景色和透明度 */
+    color: white;         /* 文字颜色 */
+    padding: 10px;        /* 内边距 */
+    border-radius: 5px;   /* 圆角边框 */
+    z-index: 1000;        /* 确保其位于其他内容之上 */
+    visibility: visible;  /* 确保文字区域始终可见 */
+}
+
+    </style>
     <meta charset="UTF-8" />
     <meta name="description" content="Happy Birthday">
     <meta name="robots" content="index, follow" />
@@ -61,6 +75,10 @@
         <h2 style="color:#20CFB4;"></h2>
     </div>
     <img src="assets/Balloon-Border.png" width="100%" class="balloon-border">
+
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-2 col-xs-2 bulb-holder">
@@ -106,6 +124,9 @@
             <div class="col-md-12" id="texts-container">
             </div>
         </div>
+        <div class="text-box">
+         <div class="type_words" id="contents"></div>
+        </div>
         <div class="navbar navbar-fixed-bottom">
             <div class="row">
                 <div class="col-md-6 text-center col-md-offset-3">
@@ -120,6 +141,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </body>
 
